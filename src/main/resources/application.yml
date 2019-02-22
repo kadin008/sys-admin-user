@@ -1,0 +1,39 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8090
+spring:
+  application:
+      name: sys-admin-user
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://rdsv148e9hymz8rj85wqo.mysql.rds.aliyuncs.com:3306/aipic.net.cn?useUnicode=true&amp;characterEncoding=utf-8
+          username: kadin008
+          password: Admin@2010
+          filters: stat,wall,log4j2,config
+          max-active: 100
+          initial-size: 5
+          max-wait: 60000
+          min-idle: 5
+          time-between-eviction-runs-millis: 60000
+          min-evictable-idle-time-millis: 300000
+          validation-query: select 'x'
+          test-while-idle: true
+          test-on-borrow: false
+          test-on-return: false
+          pool-prepared-statements: true
+          max-open-prepared-statements: 50
+          max-pool-prepared-statement-per-connection-size: 20
+mybatis:
+  type-aliases-package: cn.net.aipic.sysadminuser.entity
+  mapper-locations: classpath:mapper/*.xml
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: countSql
